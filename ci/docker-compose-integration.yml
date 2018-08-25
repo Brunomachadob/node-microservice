@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  api_integration:
+    build:
+      context: ../
+    environment:
+      - MONGODB_URL=mongodb://ms-mongodb-integration:27017/ms-db
+    depends_on:
+      - mongodb
+    command: bash -c "cd /opt/code && npm run test:integration"
+    container_name: ms-mongodb-api-integration
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    container_name: ms-mongodb-integration

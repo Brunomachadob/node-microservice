@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ../
+    environment:
+      - MONGODB_URL=mongodb://ms-mongodb:27017/ms-db
+    depends_on:
+      - mongodb
+    command: bash -c "cd /opt/code && npm run prod"
+    container_name: ms-mongodb-api
+
+  mongodb:
+    image: mongo
+    volumes:
+      - ./data/mongodb:/data/db
+    ports:
+      - 27017:27017
+    container_name: ms-mongodb
