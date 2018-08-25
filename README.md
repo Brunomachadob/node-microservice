@@ -27,5 +27,6 @@
 
 * `npm install` to install all dependencies.
 * `npm run build` to build the production artifact (output `./dir`).
-* `npm start` to run in dev mode with hot reload.
+* `npm run dev` to run in dev mode with hot reload.
 * `npm test` to run unit tests.
+* `npm run prod` to run in prod in cluster mode.
