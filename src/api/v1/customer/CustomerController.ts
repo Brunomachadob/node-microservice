@@ -31,7 +31,7 @@ class CustomerController {
 
             res.json(customers);
         } catch (err) {
-            res.status(500).send(err)
+            next(err)
         }
     }
 
@@ -41,7 +41,7 @@ class CustomerController {
 
             res.json(newCustomer.toJSON());
         } catch (err) {
-            res.status(500).send(err)
+            next(err)
         }
     }
 
@@ -57,7 +57,7 @@ class CustomerController {
 
             res.json(newCustomer.toJSON());
         } catch (err) {
-            res.status(500).send(err)
+            next(err)
         }
     }
 
@@ -73,7 +73,7 @@ class CustomerController {
 
             res.json(deletedCustomer.toJSON());
         } catch (err) {
-            res.status(500).send(err)
+            next(err)
         }
     }
 }

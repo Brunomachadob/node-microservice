@@ -29,4 +29,21 @@
 * `npm run build` to build the production artifact (output `./dir`).
 * `npm run dev` to run in dev mode with hot reload.
 * `npm test` to run unit tests.
-* `npm run prod` to run in prod in cluster mode.
+* `npm start` to run in prod in cluster mode.
+
+### Monitoring
+
+#### Prometheus
+
+There are some metrics that are exposed on `/metrics` path.
+
+To start a prometheus instance to view those metrics:
+`docker run -d --net=host --name=prometheus -v ./ci/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus`
+
+#### Grafana
+
+Also, it has a grafana dashboard, configured with the default metrics gathered from prometheus:
+
+`docker run -d --net=host --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana`
+
+Then, open grafana the admin and import the `ci/grafana-dashboard.json` file.

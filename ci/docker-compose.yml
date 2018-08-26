@@ -8,7 +8,8 @@ services:
       - MONGODB_URL=mongodb://ms-mongodb:27017/ms-db
     depends_on:
       - mongodb
-    command: bash -c "cd /opt/code && npm run prod"
+    ports:
+      - 3000:3000
     container_name: ms-mongodb-api
 
   mongodb:

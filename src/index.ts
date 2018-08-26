@@ -6,7 +6,7 @@ import winstom from './config/winston';
 
 import App from './App';
 
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || 8080;
 
 App.build().then((instance) => {
     const server = http.createServer(instance);
@@ -19,6 +19,8 @@ App.build().then((instance) => {
     });
 
     server.on('error', onError);
+}).catch((err) => {
+    winstom.error(err);
 })
 
 

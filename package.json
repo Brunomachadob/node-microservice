@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/tsc",
-    "dev": "node_modules/nodemon/bin/nodemon.js",
-    "prod": "NODE_ENV=prod pm2 start ts-node --name app -i 0 -- ./src/index.ts",
+    "start": "node_modules/nodemon/bin/nodemon.js",
     "test": "npm run test:unit",
     "test:unit": "NODE_ENV=test nyc mocha test/unit/**/*.spec.ts",
     "test:integration": "NODE_ENV=test nyc mocha test/**/*.spec.ts"
@@ -35,6 +34,7 @@
     "express": "^4.16.3",
     "mongoose": "^5.2.2",
     "morgan": "^1.7.0",
+    "prom-client": "^11.1.1",
     "winston": "^3.0.0"
   },
   "nyc": {
